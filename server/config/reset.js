@@ -11,8 +11,8 @@ const createTables = async () => {
                 start_date DATE,
                 end_date DATE,
                 icon TEXT,
-                created_at DATE DEFAULT CURRENT_TIMESTAMP,
-                updated_at DATE DEFAULT CURRENT_TIMESTAMP,
+                created_at DATE,
+                updated_at DATE,
                 is_public BOOLEAN DEFAULT TRUE
             );`
 
