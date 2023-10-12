@@ -1,5 +1,5 @@
 {
-  "name": "boltbucket",
+  "name": "milemap",
   "type": "module",
   "scripts": {
     "dev": "concurrently \"cd client && vite\" \"cd server && nodemon server\"",
