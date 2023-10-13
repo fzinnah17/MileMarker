@@ -3,6 +3,7 @@ import pg from 'pg'
 const connectionString = process.env.DATABASE_URL;
 
 const config = {
+    
     user: process.env.PGUSER,
     password: process.env.PGPASSWORD,
     host: process.env.PGHOST,

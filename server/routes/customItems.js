@@ -5,7 +5,7 @@ import {
     createCustomItem, 
     updateCustomItem, 
     deleteCustomItem 
-} from '../controllers/customItemController.js';  // make sure the path is correct
+} from '../controllers/customItemController.js';
 
 const router = express.Router();
 
@@ -24,4 +24,4 @@ router.put('/:id', updateCustomItem);
 // Route to delete a custom item
 router.delete('/:id', deleteCustomItem);
 
-export default router;
+export { router as customItemsRouter };
