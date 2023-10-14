@@ -1,0 +1,80 @@
+/* Style for the entire createMilestone container */
+.create-milestone-container {
+    background-color: #1e1e1e; /* Dark background color */
+    color: #fff; /* Text color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Header style */
+  .create-milestone-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ff6e40; /* Neon orange color */
+  }
+  
+  /* Input field style */
+  .create-milestone-container input[type="text"],
+  .create-milestone-container input[type="date"],
+  .create-milestone-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #333; /* Dark input background */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  /* Select option style */
+  .create-milestone-container select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+  }
+  
+  /* Submit button style */
+  .create-milestone-container button[type="submit"] {
+    background-color: #ff6e40;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .create-milestone-container button[type="submit"]:hover {
+    background-color: #ff4e1e; /* Slightly brighter neon orange on hover */
+  }
+  
+  /* Success message style */
+  .create-milestone-container .success-message {
+    background-color: #00cc00; /* Neon green color */
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Go Back button style */
+  .create-milestone-container button[type="button"] {
+    background-color: transparent;
+    color: #ff6e40;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  /* Go Back button on hover */
+  .create-milestone-container button[type="button"]:hover {
+    text-decoration: underline;
+  }
+  

@@ -27,4 +27,4 @@ router.patch('/:id', updateCustomItem);
 // Route to delete a custom item
 router.delete('/:id', deleteCustomItem);
 
-export default router
+export default router;

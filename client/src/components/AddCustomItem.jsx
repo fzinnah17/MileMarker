@@ -15,7 +15,7 @@ const InputField = ({ type, name, value, onChange, label }) => (
   </div>
 );
 
-const AddCustomItem = ({ itemData, handleInputChange, handleSubmit, handleCategoryChange, selectedIcon }) => {
+const AddCustomItem = ({ itemData, handleInputChange, handleSubmit, selectedIcon, disabledCategories = [] }) => {
   const navigate = useNavigate();
 
   const submitAndNavigate = async (e) => {
@@ -23,29 +23,37 @@ const AddCustomItem = ({ itemData, handleInputChange, handleSubmit, handleCatego
     navigate('/'); // navigating to the homepage after submitting
   };
 
+  // Manually specify the category options based on the new mock data
+  const categoryOptions = [
+    "--Select--",
+    "Dress Watches",
+    "Diving Watches",
+    "Fitness Watches",
+    "Mechanical Watches",
+    "Luxury Watches",
+    "Smartwatches",
+    "Women's Watches",
+    "Military Watches",
+    "Aviator Watches",
+    "Wooden Watches",
+  ];
+
   return (
     <div className="form-container">
-            <form onSubmit={submitAndNavigate}>
+      <form onSubmit={submitAndNavigate}>
         <label>
           Category:
-          <select name="category" onChange={handleCategoryChange} value={itemData.category}>
-              <option value="">--Select--</option> {/* It's good practice to have a default option */}
-              <option value="education">Education</option>
-              <option value="family">Family</option>
-              <option value="self-care">Self-Care</option>
-              <option value="career">Career</option>
+          <select name="category" onChange={handleInputChange} value={itemData.category}>
+            {categoryOptions.map((category, index) => (
+              <option key={index} value={category} disabled={disabledCategories.includes(category)}>
+                {category}
+              </option>
+            ))}
           </select>
         </label>
         <span>{selectedIcon}</span>
         <br />
 
-        <InputField
-          type="text"
-          name="category"
-          value={itemData.category}
-          onChange={handleInputChange}
-          label="Category"
-        />
         <InputField
           type="text"
           name="title"
@@ -81,6 +89,14 @@ const AddCustomItem = ({ itemData, handleInputChange, handleSubmit, handleCatego
           onChange={handleInputChange}
           label="Icon"
         />
+        <InputField
+          type="number" // Use type "number" to accept integers
+          name="value"
+          value={itemData.value}
+          onChange={handleInputChange}
+          label="Value"
+        />
+
         <button type="submit">Create Custom Item</button>
       </form>
     </div>

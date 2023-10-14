@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getCustomItemById, updateCustomItem } from '../services/CustomItemsAPI.js';
 import AddCustomItem from '../components/AddCustomItem.jsx';
+import "../css/EditMilestone.css"
 
 const EditMilestone = () => {
     const [itemData, setItemData] = useState(null);
@@ -46,7 +47,7 @@ const EditMilestone = () => {
     if (!itemData) return 'Loading...';
 
     return (
-        <div>
+        <div className="edit-milestone-container">
             <h1>Edit Milestone</h1>
             <AddCustomItem 
                 itemData={itemData}

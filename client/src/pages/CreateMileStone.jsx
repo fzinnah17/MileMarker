@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createCustomItem } from '../services/CustomItemsAPI.js';
 import AddCustomItem from '../components/AddCustomItem.jsx';
+import "../css/CreateMileStone.css";
 
 const CreateMileStone = () => {
     const [itemData, setItemData] = useState({
@@ -11,10 +12,10 @@ const CreateMileStone = () => {
         end_date: '',
         icon: '',
         value: '',
-      
     });
     const [selectedIcon, setSelectedIcon] = useState("");
-    const [errorMessage, setErrorMessage] = useState(""); // state for handling error messages
+    const [errorMessage, setErrorMessage] = useState("");
+    const [disabledCategories, setDisabledCategories] = useState([]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -24,21 +25,20 @@ const CreateMileStone = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Simplified validation logic
         if (!itemData.title || !itemData.description || !itemData.category) {
             setErrorMessage("Please fill in the title, description, and category!");
             return;
         }
 
-        if (itemData.category === "education" && !itemData.title.startsWith("Study")) {
-            setErrorMessage("For 'education' category, the title must start with 'Study'");
+        if (itemData.category === "Dress Watches" && !itemData.title.startsWith("Classic")) {
+            setErrorMessage("For 'Dress Watches' category, the title must start with 'Classic'");
             return;
         }
 
         try {
             const newItem = await createCustomItem(itemData);
-            console.log(newItem); // 'newItem' contains the response from API
-            setErrorMessage(""); // Clear the error message upon successful creation
+            console.log(newItem);
+            setErrorMessage("");
         } catch (error) {
             console.error("There was an error creating the item!", error);
             setErrorMessage("There was an error creating the item!");
@@ -49,37 +49,69 @@ const CreateMileStone = () => {
         const category = event.target.value;
         setItemData({ ...itemData, category: category });
 
-        // Simple logic to select icon based on category
         let icon;
-        switch(category) {
-            case "education":
-                icon = "🎓";
+        let disabled;
+
+        switch (category) {
+            case "Dress Watches":
+                icon = "👔";
+                disabled = ["Dress Watches", "Diving Watches", "Fitness Watches", "Mechanical Watches", "Luxury Watches", "Smartwatches", "Women's Watches", "Military Watches", "Aviator Watches", "Wooden Watches"];
                 break;
-            case "family":
-                icon = "👨‍👩‍👧";
+            case "Diving Watches":
+                icon = "🌊";
+                disabled = ["Diving Watches", "Dress Watches", "Fitness Watches", "Mechanical Watches", "Luxury Watches", "Smartwatches", "Women's Watches", "Military Watches", "Aviator Watches", "Wooden Watches"];
                 break;
-            case "self-care":
-                icon = "❤️";
+            case "Fitness Watches":
+                icon = "🏋️";
+                disabled = ["Fitness Watches", "Dress Watches", "Diving Watches", "Mechanical Watches", "Luxury Watches", "Smartwatches", "Women's Watches", "Military Watches", "Aviator Watches", "Wooden Watches"];
                 break;
-            case "career":
-                icon = "💼";
+            case "Mechanical Watches":
+                icon = "⚙️";
+                disabled = ["Mechanical Watches", "Dress Watches", "Diving Watches", "Fitness Watches", "Luxury Watches", "Smartwatches", "Women's Watches", "Military Watches", "Aviator Watches", "Wooden Watches"];
+                break;
+            case "Luxury Watches":
+                icon = "💎";
+                disabled = ["Luxury Watches", "Dress Watches", "Diving Watches", "Fitness Watches", "Mechanical Watches", "Smartwatches", "Women's Watches", "Military Watches", "Aviator Watches", "Wooden Watches"];
+                break;
+            case "Smartwatches":
+                icon = "📱";
+                disabled = ["Smartwatches", "Dress Watches", "Diving Watches", "Fitness Watches", "Mechanical Watches", "Luxury Watches", "Women's Watches", "Military Watches", "Aviator Watches", "Wooden Watches"];
+                break;
+            case "Women's Watches":
+                icon = "👩";
+                disabled = ["Women's Watches", "Dress Watches", "Diving Watches", "Fitness Watches", "Mechanical Watches", "Luxury Watches", "Smartwatches", "Military Watches", "Aviator Watches", "Wooden Watches"];
+                break;
+            case "Military Watches":
+                icon = "✈️";
+                disabled = ["Military Watches", "Dress Watches", "Diving Watches", "Fitness Watches", "Mechanical Watches", "Luxury Watches", "Smartwatches", "Women's Watches", "Aviator Watches", "Wooden Watches"];
+                break;
+            case "Aviator Watches":
+                icon = "🛩️";
+                disabled = ["Aviator Watches", "Dress Watches", "Diving Watches", "Fitness Watches", "Mechanical Watches", "Luxury Watches", "Smartwatches", "Women's Watches", "Military Watches", "Wooden Watches"];
+                break;
+            case "Wooden Watches":
+                icon = "🌳";
+                disabled = ["Wooden Watches", "Dress Watches", "Diving Watches", "Fitness Watches", "Mechanical Watches", "Luxury Watches", "Smartwatches", "Women's Watches", "Military Watches", "Aviator Watches"];
                 break;
             default:
                 icon = "";
+                disabled = [];
         }
         setSelectedIcon(icon);
+        setDisabledCategories(disabled);
     };
 
     return (
-        <div>
+        <div className="create-milestone-container">
             <h1>Create a New Milestone</h1>
-            {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message when it's set */}
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
             <AddCustomItem 
                 itemData={itemData}
                 handleInputChange={handleInputChange}
                 handleSubmit={handleSubmit}
                 handleCategoryChange={handleCategoryChange}
                 selectedIcon={selectedIcon}
+                disabledCategories={disabledCategories}
                 isEditMode={false}
             />
         </div>

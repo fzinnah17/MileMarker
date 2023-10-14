@@ -1,0 +1,86 @@
+/* Apply a neon glow to the entire component */
+.MilestoneDetails {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  
+  /* Style the header/title of the milestone */
+  .MilestoneDetails h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Style the description */
+  .MilestoneDetails p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  /* Style the details section */
+  .MilestoneDetails .details {
+    margin-top: 20px;
+  }
+  
+  /* Style individual detail items */
+  .MilestoneDetails .details p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  /* Style the buttons */
+  .MilestoneDetails button {
+    background-color: #00ffff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Change button color on hover */
+  .MilestoneDetails button:hover {
+    background-color: #00b3b3;
+  }
+  
+  /* Style the total value section */
+  .MilestoneDetails .total-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  /* Style the "Loading..." text */
+  .MilestoneDetails .loading {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  /* Style the "Go Back" button */
+  .MilestoneDetails .go-back-button {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Style the navigation link color */
+  .MilestoneDetails .go-back-button a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  /* Change link color on hover */
+  .MilestoneDetails .go-back-button a:hover {
+    color: #00b3b3;
+  }
+  

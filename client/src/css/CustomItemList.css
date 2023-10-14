@@ -1,0 +1,85 @@
+
+/* Style for the entire CustomItemList component */
+.custom-item-list-container {
+    background-color: #121212; /* Dark background color */
+    color: #ffffff; /* White text color */
+    padding: 20px;
+  }
+  
+  .custom-item-list-container h1 {
+    font-size: 32px; /* Large font size for the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+    text-align: center; /* Center-align the heading */
+    text-transform: uppercase; /* Uppercase text */
+  }
+  
+  .custom-item-list {
+    list-style-type: none; /* Remove list bullets */
+    padding: 0;
+  }
+  
+  .custom-item-list li {
+    margin: 10px 0; /* Add spacing between list items */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between; /* Space between list items */
+    align-items: center;
+    background-color: #1a1a1a; /* Dark background color for list items */
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+  }
+  
+  .custom-item-list li:hover {
+    background-color: #292929; /* Darker background color on hover */
+    cursor: pointer;
+  }
+  
+  .custom-item-list a {
+    color: rgb(216, 50, 117); /* Neon-ish link color */
+    text-decoration: none; /* Remove underlines from links */
+  }
+  
+  .custom-item-list a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
+  .create-milestone-link {
+    display: block;
+    text-align: center; /* Center-align the link */
+    margin-top: 20px; /* Add space above the link */
+    text-transform: uppercase; /* Uppercase text */
+  }
+  
+  .create-milestone-link a {
+    background-color: #f06; /* Neon-ish background color */
+    color: #ffffff; /* White text color */
+    padding: 10px 20px; /* Padding for the link */
+    text-decoration: none; /* Remove underlines from links */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+  }
+  
+  .create-milestone-link a:hover {
+    background-color: #ff3399; /* Brighter neon-ish color on hover */
+  }
+
+  /* Add this CSS at the bottom of your existing CSS */
+
+.create-milestone-button {
+    position: default;
+    top: 20px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+    color: #ffffff; /* White text color */
+    padding: 10px 20px; /* Padding for the button */
+    text-decoration: none; /* Remove underlines from links */
+    border-radius: 50%; /* Make it circular */
+    font-size: 24px; /* Adjust the font size as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+
+
+  
+  

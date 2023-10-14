@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getCustomItemById, deleteCustomItem, getTotalValue } from '../services/CustomItemsAPI.js'; // Import getTotalValue
+import "../css/MilestoneDetails.css"
 
 const MilestoneDetails = () => {
     const [item, setItem] = useState(null);
@@ -36,7 +37,7 @@ const MilestoneDetails = () => {
     if (!item || totalValue === null) return 'Loading...';
 
     return (
-        <div>
+        <div className="MilestoneDetails">
             <h1>{item.title}</h1>
             <p>{item.description}</p>
             <p>Category: {item.category}</p>

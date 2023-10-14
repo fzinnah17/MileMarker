@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllCustomItems } from '../services/CustomItemsAPI.js';
+import "../css/CustomItemList.css"
 
 const CustomItemList = () => {
     const [items, setItems] = useState([]);
@@ -22,12 +23,15 @@ const CustomItemList = () => {
     }, []);
 
     return (
-        <div>
+        <div className="custom-item-list-container">
             <h1>Milestones</h1>
+            <Link to="/create-milestone" className="create-milestone-button">
+                <span>+</span> Create New Milestone
+            </Link>
             {items.length === 0 ? (
                 <p>No milestones found!</p>
             ) : (
-                <ul>
+                <ul className="custom-item-list">
                     {items.map((item) => (
                         <li key={item.id}>
                             <Link to={`/milestone/${item.id}`}>
@@ -38,7 +42,6 @@ const CustomItemList = () => {
 
                 </ul>
             )}
-            <Link to="/create-milestone">Create New Milestone</Link>
         </div>
     );
 };
