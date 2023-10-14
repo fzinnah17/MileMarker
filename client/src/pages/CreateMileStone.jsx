@@ -9,7 +9,9 @@ const CreateMileStone = () => {
         description: '',
         start_date: '',
         end_date: '',
-        icon: ''
+        icon: '',
+        value: '',
+      
     });
     const [selectedIcon, setSelectedIcon] = useState("");
     const [errorMessage, setErrorMessage] = useState(""); // state for handling error messages
@@ -25,6 +27,11 @@ const CreateMileStone = () => {
         // Simplified validation logic
         if (!itemData.title || !itemData.description || !itemData.category) {
             setErrorMessage("Please fill in the title, description, and category!");
+            return;
+        }
+
+        if (itemData.category === "education" && !itemData.title.startsWith("Study")) {
+            setErrorMessage("For 'education' category, the title must start with 'Study'");
             return;
         }
 

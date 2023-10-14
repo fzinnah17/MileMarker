@@ -13,6 +13,16 @@ export const getAllCustomItems = async () => {
     }
 };
 
+export const getTotalValue = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/total-value`);
+        return response.data.totalValue;
+    } catch (error) {
+        console.error("Error fetching total value: ", error);
+        throw error;
+    }
+};
+
 export const getCustomItemById = async (id) => {
     try {
         const response = await axios.get(`${API_URL}/${id}`);
@@ -52,3 +62,4 @@ export const deleteCustomItem = async (id) => {
         throw error;
     }
 };
+

@@ -17,7 +17,8 @@ const createCustomItemsTable = async () => {
       icon TEXT,
       created_at DATE,
       updated_at DATE,
-      is_public BOOLEAN DEFAULT TRUE
+      is_public BOOLEAN DEFAULT TRUE,
+      value INTEGER NOT NULL
     )
   `;
 
@@ -34,8 +35,8 @@ const seedCustomItemsTable = async () => {
 
   mockData.forEach((item) => {
     const insertQuery = {
-      text: `INSERT INTO custom_items (category, title, description, start_date, end_date, icon, created_at, updated_at, is_public)
-             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+      text: `INSERT INTO custom_items (category, title, description, start_date, end_date, icon, created_at, updated_at, is_public, value)
+             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
       values: [
         item.category,
         item.title,
@@ -45,7 +46,8 @@ const seedCustomItemsTable = async () => {
         item.icon,
         item.created_at,
         item.updated_at,
-        item.is_public
+        item.is_public,
+        item.value
       ],
     };
 

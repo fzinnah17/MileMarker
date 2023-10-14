@@ -1,5 +1,3 @@
-// server/data/mockData.js
-
 export const mockData = [
     {
         id: 1,
@@ -11,7 +9,8 @@ export const mockData = [
         icon: "graduation-cap",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 5500
     },
     {
         id: 2,
@@ -22,7 +21,8 @@ export const mockData = [
         icon: "leaf",
         created_at: "2023-08-18",
         updated_at: "2023-09-10",
-        is_public: true
+        is_public: true,
+        value: 3000
     },
     {
         id: 3,
@@ -33,7 +33,8 @@ export const mockData = [
         icon: "school",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 1500
     },
     {
         id: 4,
@@ -44,7 +45,8 @@ export const mockData = [
         icon: "hands-helping",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 1000
     },
     {
         id: 5,
@@ -55,7 +57,8 @@ export const mockData = [
         icon: "music",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 750
     },
     {
         id: 6,
@@ -66,7 +69,8 @@ export const mockData = [
         icon: "graduation-cap",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 3000
     },
     {
         id: 7,
@@ -77,7 +81,8 @@ export const mockData = [
         icon: "laptop-code",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 4000
     },
     {
         id: 8,
@@ -88,7 +93,8 @@ export const mockData = [
         icon: "car-side",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 800
     },
     {
         id: 9,
@@ -99,7 +105,8 @@ export const mockData = [
         icon: "code",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 1200
     },
     {
         id: 10,
@@ -110,7 +117,8 @@ export const mockData = [
         icon: "book-reader",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 500
     },
     {
         id: 11,
@@ -121,7 +129,8 @@ export const mockData = [
         icon: "laptop-code",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 1800
     },
     {
         id: 12,
@@ -133,7 +142,8 @@ export const mockData = [
         icon: "mobile-alt",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 2800
     },
     {
         id: 13,
@@ -144,7 +154,8 @@ export const mockData = [
         icon: "graduation-cap",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 5000
     },
     {
         id: 14,
@@ -156,7 +167,8 @@ export const mockData = [
         icon: "briefcase",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 3500
     },
     {
         id: 15,
@@ -167,7 +179,8 @@ export const mockData = [
         icon: "lightbulb",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 4500
     },
     {
         id: 16,
@@ -179,7 +192,8 @@ export const mockData = [
         icon: "seedling",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 3200
     },
     {
         id: 17,
@@ -190,7 +204,8 @@ export const mockData = [
         icon: "user-graduate",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 2200
     },
     {
         id: 18,
@@ -202,7 +217,8 @@ export const mockData = [
         icon: "chalkboard-teacher",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 1800
     },
     {
         id: 19,
@@ -213,7 +229,8 @@ export const mockData = [
         icon: "trophy",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 800
     },
     {
         id: 20,
@@ -224,6 +241,7 @@ export const mockData = [
         icon: "building",
         created_at: "2023-09-12",
         updated_at: "2023-09-15",
-        is_public: true
+        is_public: true,
+        value: 1200
     }
 ];

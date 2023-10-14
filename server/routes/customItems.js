@@ -4,13 +4,16 @@ import {
     getCustomItemById, 
     createCustomItem, 
     updateCustomItem, 
-    deleteCustomItem 
+    deleteCustomItem,
+    getTotalValue
 } from '../controllers/customItemController.js';
 
 const router = express.Router();
 
 // Route to get all custom items
 router.get('/', getAllCustomItems);
+
+router.get('/total-value', getTotalValue);
 
 // Route to get a single custom item by ID
 router.get('/:id', getCustomItemById);

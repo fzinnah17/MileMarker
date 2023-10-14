@@ -12,6 +12,15 @@ export const getAllCustomItems = async (req, res) => {
     }
 };
 
+export const getTotalValue = async (req, res) => {
+    try {
+        const result = await pool.query('SELECT SUM(value) FROM custom_items');
+      res.status(200).json({ totalValue: result.rows[0].sum });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
+
 // Get a single custom item by id
 export const getCustomItemById = async (req, res) => {
     const id = parseInt(req.params.id, 10);
@@ -31,16 +40,16 @@ export const getCustomItemById = async (req, res) => {
 
 // Create a new custom item
 export const createCustomItem = async (req, res) => {
-    const { category, title, description, start_date, end_date, icon, is_public, user_id } = req.body;
+    const { category, title, description, start_date, end_date, icon, is_public, value } = req.body;
 
-    if(!title || !description || !category) {
-        return res.status(400).json({ error: "Title, description, and category are required!" });
+    if(!title || !description || !category || value == null) {
+        return res.status(400).json({ error: "Title, description, category, and value are required!" });
     }
 
     try {
         const result = await pool.query(
-            'INSERT INTO custom_items (category, title, description, start_date, end_date, icon, created_at, updated_at, is_public, user_id) VALUES ($1, $2, $3, $4, $5, $6, NOW(), NOW(), $7, $8) RETURNING *',
-            [category, title, description, start_date, end_date, icon, is_public, user_id]
+            'INSERT INTO custom_items (category, title, description, start_date, end_date, icon, created_at, updated_at, is_public, value) VALUES ($1, $2, $3, $4, $5, $6, NOW(), NOW(), $7, $8) RETURNING *'
+            [category, title, description, start_date, end_date, icon, is_public, value]
         );
         res.status(201).json(result.rows[0]);
     } catch (error) {
@@ -85,5 +94,6 @@ export const deleteCustomItem = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+  
 
 
