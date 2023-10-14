@@ -13,7 +13,7 @@ export const getAllCustomItems = async () => {
     }
 };
 
-export const getCustomItem = async (id) => {
+export const getCustomItemById = async (id) => {
     try {
         const response = await axios.get(`${API_URL}/${id}`);
         return response.data;
@@ -35,7 +35,7 @@ export const createCustomItem = async (customItem) => {
 
 export const updateCustomItem = async (id, updatedData) => {
     try {
-        const response = await axios.put(`${API_URL}/${id}`, updatedData);
+        const response = await axios.patch(`${API_URL}/${id}`, updatedData);
         return response.data;
     } catch (error) {
         console.error(`Error updating item with id ${id}: `, error);

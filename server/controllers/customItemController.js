@@ -3,9 +3,11 @@ import { pool } from '../config/database.js';
 // Get all custom items
 export const getAllCustomItems = async (req, res) => {
     try {
+        console.log("About to execute the query");
         const result = await pool.query('SELECT * FROM custom_items');
         res.status(200).json(result.rows);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: error.message });
     }
 };
@@ -29,12 +31,16 @@ export const getCustomItemById = async (req, res) => {
 
 // Create a new custom item
 export const createCustomItem = async (req, res) => {
-    const { category, title, description, start_date, end_date, icon } = req.body;
+    const { category, title, description, start_date, end_date, icon, is_public, user_id } = req.body;
+
+    if(!title || !description || !category) {
+        return res.status(400).json({ error: "Title, description, and category are required!" });
+    }
 
     try {
         const result = await pool.query(
-            'INSERT INTO custom_items (category, title, description, start_date, end_date, icon, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, NOW(), NOW()) RETURNING *',
-            [category, title, description, start_date, end_date, icon]
+            'INSERT INTO custom_items (category, title, description, start_date, end_date, icon, created_at, updated_at, is_public, user_id) VALUES ($1, $2, $3, $4, $5, $6, NOW(), NOW(), $7, $8) RETURNING *',
+            [category, title, description, start_date, end_date, icon, is_public, user_id]
         );
         res.status(201).json(result.rows[0]);
     } catch (error) {

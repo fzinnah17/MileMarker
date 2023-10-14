@@ -24,7 +24,6 @@ export const mockData = [
         updated_at: "2023-09-10",
         is_public: true
     },
-    // Additional mock data based on the provided timeline
     {
         id: 3,
         category: "education",

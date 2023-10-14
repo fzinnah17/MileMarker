@@ -34,10 +34,9 @@ const seedCustomItemsTable = async () => {
 
   mockData.forEach((item) => {
     const insertQuery = {
-      text: `INSERT INTO custom_items (id, category, title, description, start_date, end_date, icon, created_at, updated_at, is_public)
-             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
+      text: `INSERT INTO custom_items (category, title, description, start_date, end_date, icon, created_at, updated_at, is_public)
+             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
       values: [
-        item.id,
         item.category,
         item.title,
         item.description,
@@ -59,5 +58,6 @@ const seedCustomItemsTable = async () => {
     });
   });
 };
+
 
 seedCustomItemsTable();

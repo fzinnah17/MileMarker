@@ -2,7 +2,7 @@ import express from 'express'
 import path from 'path'
 import favicon from 'serve-favicon'
 import dotenv from 'dotenv'
-import { customItemsRouter } from "./routes/customItems.js"
+import customItemsRouter from "./routes/customItems.js"
 
 dotenv.config()
 
@@ -34,6 +34,11 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.resolve('public', 'index.html'))
     )
 }
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Internal Server Error');
+});
 
 app.listen(PORT, () => {
     console.log(`server listening on http://localhost:${PORT}`)

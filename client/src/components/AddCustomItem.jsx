@@ -1,44 +1,90 @@
-import React, { useState } from "react";
-import { createCustomItem } from "../services/CustomItemsAPI.js";
-// Import other services as needed
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export const AddCustomItem = () => {
-  const [itemData, setItemData] = useState({
-    category: "",
-    title: "",
-    description: "",
-    // other fields...
-  });
+const InputField = ({ type, name, value, onChange, label }) => (
+  <div className="input-field">
+    <label>
+      {label}:
+      {type === 'checkbox' ? (
+        <input type={type} name={name} checked={value} onChange={onChange} />
+      ) : (
+        <input type={type} name={name} value={value || ''} onChange={onChange} />
+      )}
+    </label>
+    <br />
+  </div>
+);
 
-  const handleChange = (e) => {
-    setItemData({ ...itemData, [e.target.name]: e.target.value });
-  };
+const AddCustomItem = ({ itemData, handleInputChange, handleSubmit, handleCategoryChange, selectedIcon }) => {
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await createCustomItem(itemData);
-      // Redirect to the list or handle the response as needed
-    } catch (error) {
-      console.error("Error creating item: ", error);
-    }
+  const submitAndNavigate = async (e) => {
+    await handleSubmit(e);
+    navigate('/'); // navigating to the homepage after submitting
   };
 
   return (
-    <div>
-      <h1>Add Custom Item</h1>
-      <form onSubmit={handleSubmit}>
-        {/* Create form fields for category, title, description, etc. */}
-        <input
+    <div className="form-container">
+            <form onSubmit={submitAndNavigate}>
+        <label>
+          Category:
+          <select name="category" onChange={handleCategoryChange} value={itemData.category}>
+              <option value="">--Select--</option> {/* It's good practice to have a default option */}
+              <option value="education">Education</option>
+              <option value="family">Family</option>
+              <option value="self-care">Self-Care</option>
+              <option value="career">Career</option>
+          </select>
+        </label>
+        <span>{selectedIcon}</span>
+        <br />
+
+        <InputField
+          type="text"
+          name="category"
+          value={itemData.category}
+          onChange={handleInputChange}
+          label="Category"
+        />
+        <InputField
           type="text"
           name="title"
           value={itemData.title}
-          onChange={handleChange}
-          required
+          onChange={handleInputChange}
+          label="Title"
         />
-        {/* Repeat for other fields */}
-        <button type="submit">Submit</button>
+        <InputField
+          type="text"
+          name="description"
+          value={itemData.description}
+          onChange={handleInputChange}
+          label="Description"
+        />
+        <InputField
+          type="date"
+          name="start_date"
+          value={itemData.start_date}
+          onChange={handleInputChange}
+          label="Start Date"
+        />
+        <InputField
+          type="date"
+          name="end_date"
+          value={itemData.end_date}
+          onChange={handleInputChange}
+          label="End Date"
+        />
+        <InputField
+          type="text"
+          name="icon"
+          value={itemData.icon}
+          onChange={handleInputChange}
+          label="Icon"
+        />
+        <button type="submit">Create Custom Item</button>
       </form>
     </div>
   );
 };
+
+export default AddCustomItem;

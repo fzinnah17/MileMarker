@@ -1,8 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from "./components/Navigation";
-import { CustomItemList } from './components/CustomItemList';
-import { AddCustomItem } from './components/AddCustomItem';
+import CustomItemList from "./components/CustomItemList";
+import CreateMileStone from './pages/CreateMileStone';
+import MilestoneDetails from './pages/MilestoneDetails';
+import EditMilestone from './pages/EditMilestone';
+
 import './App.css';
 
 const App = () => {
@@ -11,53 +14,12 @@ const App = () => {
     <Navigation />
       <Routes>
       <Route path="/" element={<CustomItemList />} />
-        <Route path="add-item" element={<AddCustomItem />} />
+          <Route path="create-milestone" element={<CreateMileStone />} />
+          <Route path="edit-milestone/:id" element={<EditMilestone />} />
+          <Route path="milestone/:id" element={<MilestoneDetails />} />
       </Routes>
       </div>
   );
 }
 
 export default App;
-
-
-// import React from 'react'
-// import { useRoutes } from 'react-router-dom'
-// import Navigation from './components/Navigation'
-// import ViewCars from './pages/ViewCars'
-// import EditCar from './pages/EditCar'
-// import CreateCar from './pages/CreateCar'
-// import CarDetails from './pages/CarDetails'
-// import './App.css'
-
-// const App = () => {
-//   let element = useRoutes([
-//     {
-//       path: '/',
-//       element: <CreateCar title='BOLT BUCKET | Customize' />
-//     },
-//     {
-//       path:'/customcars',
-//       element: <ViewCars title='BOLT BUCKET | Custom Cars' />
-//     },
-//     {
-//       path: '/customcars/:id',
-//       element: <CarDetails title='BOLT BUCKET | View' />
-//     },
-//     {
-//       path: '/edit/:id',
-//       element: <EditCar title='BOLT BUCKET | Edit' />
-//     }
-//   ])
-
-//   return (
-//     <div className='app'>
-
-//       <Navigation />
-
-//       { element }
-
-//     </div>
-//   )
-// }
-
-// export default App

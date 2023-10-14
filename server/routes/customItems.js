@@ -19,9 +19,9 @@ router.get('/:id', getCustomItemById);
 router.post('/', createCustomItem);
 
 // Route to update an existing custom item
-router.put('/:id', updateCustomItem);
+router.patch('/:id', updateCustomItem);
 
 // Route to delete a custom item
 router.delete('/:id', deleteCustomItem);
 
-export { router as customItemsRouter };
+export default router
