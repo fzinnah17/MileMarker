@@ -24,9 +24,9 @@ const CustomItemList = () => {
 
     return (
         <div className="custom-item-list-container">
-            <h1>Milestones</h1>
+            <h1>BUY WATCHES</h1>
             <Link to="/create-milestone" className="create-milestone-button">
-                <span>+</span> Create New Milestone
+                <span>+</span> ADD MORE WATCHES
             </Link>
             {items.length === 0 ? (
                 <p>No milestones found!</p>
